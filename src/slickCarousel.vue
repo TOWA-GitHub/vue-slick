@@ -13,6 +13,10 @@ if (typeof window !== 'undefined') {
 
 export default {
   props: {
+    onMount: {
+      type: Boolean,
+      default: true
+    },
     options: {
       type: Object,
       default: function() {
@@ -22,7 +26,7 @@ export default {
   },
 
   mounted: function() {
-    this.create();
+    if (this.onMount) this.create();
   },
 
   destroyed: function() {
